@@ -1,0 +1,361 @@
+/*/*Обнуление*/
+*,*:before,*:after {
+padding: 0;
+margin: 0;
+border: 0;
+}
+
+.container {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+html, body {
+   height: 100%;
+   width: 100%;
+   font-family: Roboto, sans-serif;
+}
+
+/*Обнуление контейнера заголовка*/
+#head {
+    padding: 0px 0px;
+    margin: 0px auto;
+}
+
+/*Шапка заголовка*/
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+}
+
+/*Шапка заголовка*/
+.header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 56px;
+    background-color: #343A40;
+    z-index: 2;
+}
+
+/*Вытаскиваю меню из под шапки, выравниваю*/
+.header_body {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    justify-content: left;
+    height: 56px;
+    align-items: center;
+}
+
+
+/*Меню из списка переходит в строку*/
+.header_list {
+    display: flex;
+    position: relative;
+    z-index: 2;
+}
+
+/*Убрал точки у списка меню*/
+.header_list li {
+    list-style: none;
+    margin:  13px 0px 0px 18px;
+    padding: 0;
+}
+
+/*Настройка элементов меню*/
+.header_link {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+/*Настройка Лого меню*/
+.header_logo {
+    padding: 9px 10px 9px 20px;
+    margin: 0px 0px 0px 0px;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    z-index: 3;
+}
+
+/*Скрывает бургер на компьютерах*/
+.header_burger {
+    display: none;
+}
+
+/*Адаптация и иконка бургера*/
+@media (max-width: 767px) {
+
+    .header_body {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header_burger {
+        display: block;
+        position: relative;
+        width: 54px;
+        height: 38px;
+        z-index: 3;
+    }
+    .header_burger span {
+        position: absolute;
+        background-color: #949494;
+        width: 26px;
+        height: 2px;
+        left: 0;
+        top: 5px;
+    }
+    .header_burger:before,
+    .header_burger:after {
+        content: '';
+        background-color: #949494;
+        position: absolute;
+        width: 26px;
+        height: 2px;
+        left: 0;
+    }
+    .header_burger:before {
+        top: 19px;
+    }
+    .header_burger:after {
+        top: 35px;
+    }
+
+    /*Престроение бургера в крестик*/
+    .header_burger.active::before {
+        transform: rotate(45deg);
+        top: 20px;
+    }
+    .header_burger.active::after {
+        transform: rotate(-45deg);
+        top: 20px;
+    }
+    .header_burger.active span {
+        transform: scale(0);
+    }
+    /*Принажатии на бургер появиться меню*/
+    .header_menu.active {
+        top: 0;
+    }
+
+    .header_menu {
+        position: fixed;
+        top: -200%;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        overflow: auto; /*Можно проскролить меню, если оно выходит за границы области background*/
+        transition: all 0.3s ease 0s;
+        background-color: #343A40;
+        padding: 70px 0px 0px 0px;
+    }
+    .header_list {
+        display: block;
+        z-index: 1;
+    }
+    /*Запрет скрола при открытом меню*/
+    body.lock {
+        overflow: hidden;
+    }
+}
+
+/*Основная страница*/
+
+.content {
+    width: 100%;
+    padding: 70px 0px 0px 0px;
+    margin: 0;
+    background-color: #E9ECEF;
+}
+
+.row {
+    padding: 0;
+    margin: 0;
+}
+
+.content1_header {
+    padding: 64px 0px 0px 40px;
+    margin: 0;
+    width: 100%;
+    font-weight: 300;
+    font-size: 72px;
+    line-height: normal;
+    color: #212529;
+}
+
+#content1_body {
+    padding: 8px 0px 0px 55px;
+    margin: 0;
+    width: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: normal;
+    color: #212529;
+}
+
+#button1 {
+    margin: 16px 0px 64px 55px;
+}
+
+/************************************************Profile and Stat***********************************************************/
+
+#body_html {
+    padding: 32px 54px 0px 55px;
+    margin: 0;
+}
+
+@media (max-width: 767px) {
+    #body_html {
+        padding: 32px 39px 0px 39px;
+    }
+}
+
+@media (max-width: 575px) {
+    #body_html {
+        padding: 32px 16px 0px 16px;
+    }
+}
+
+#content2_1_body {
+    display: block;
+    width: 445px;
+    margin: 0px 30px 32px 0px;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    border-radius: 4px 4px 4px 4px;
+}
+
+#content2_2_body {
+    width: 350px;
+    margin: 0px 0px 32px 0px;
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    border-radius: 4px 4px 4px 4px;
+}
+
+.uzer {
+    padding: 16px 5px 13px 20px;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: normal;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+}
+
+.name {
+    padding: 20px 5px 0px 20px;
+    margin: 0;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: normal;
+}
+
+.biografi {
+    padding: 12px 5px 0px 20px;
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: normal;
+}
+
+#button2 {
+    margin: 16px 0px 20px 20px;
+}
+
+.stat {
+    padding: 16px 5px 13px 20px;
+    margin: 0px -15px;
+    background-color: rgba(0, 0, 0, 0.03);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: normal;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+}
+
+.statistiks {
+    padding: 20px 5px 20px 5px;
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: normal;
+}
+
+@media (max-width: 767px) {
+    #content2_1_body {
+        width: 288px;
+    }
+    .content1_header {
+        font-size: 48px;
+    }
+}
+
+table {
+    border: 1px solid rgba(222, 226, 230, 1);
+    max-width: 1170px;
+    margin: 0px 0px 75px 0px;
+}
+
+th {
+    padding: 16px 20px 14px 20px;
+    vertical-align: top;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: normal;
+    border: 1px solid rgba(222, 226, 230, 1);
+}
+
+td {
+    padding: 16px 20px 16px 20px;
+    vertical-align: top;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: normal;
+    border: 1px solid rgba(222, 226, 230, 1);
+}
+
+@media (max-width: 767px) {
+    th {
+        padding: 20px 12px 12px 12px;
+    }
+    td {
+        padding: 12px 12px 16px 12px;
+    }
+}
+
+/*Адаптивная таблица*/
+.table-responsive {
+    overflow-x: auto;
+}
+
+.footer {
+    background-color: rgba(245, 245, 245, 1);
+    color: rgba(108, 117, 125, 1);
+    padding: 16px 0px 0.1px 55px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: normal;
+}
+
+@media (max-width: 767px) {
+    .footer {
+        padding: 16px 39px 0.1px 39px;
+    }
+}
+
+@media (max-width: 575px) {
+    .footer {
+        padding: 16px 16px 0.1px 16px;
+    }
+}
